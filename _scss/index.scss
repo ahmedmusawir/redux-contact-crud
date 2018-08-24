@@ -1,0 +1,49 @@
+/*=============================
+=            GLOBALS            =
+=============================*/
+
+@import 'global';
+
+/*=====  End of GLOBALS  ======*/
+
+/*=======================================
+=            HEADER & FOOTER            =
+=======================================*/
+
+/*=====  End of HEADER & FOOTER  ======*/
+
+/** THE BODY ===========================  */
+// ul,
+// menu,
+// dir {
+//   display: block;
+//   list-style-type: disc;
+//   -webkit-margin-before: 1em;
+//   -webkit-margin-after: 1em;
+//   -webkit-margin-start: 0px;
+//   -webkit-margin-end: 0px;
+//   -webkit-padding-start: 0px !important;
+// }
+
+.navbar {
+  border: 0.5rem solid black;
+  .navbar-nav {
+    .nav-item {
+      padding: 0.5rem;
+    }
+  }
+}
+.contact-context-app {
+  .card {
+    box-shadow: 3px 3px 8px lighten($color: gray, $amount: 30%);
+  }
+  .add-contact-from-container {
+    input {
+      box-shadow: 0.05rem 0.05rem 10px #e3e3e3;
+    }
+    .btn {
+      border: 1px solid lighten($color: gray, $amount: 38%);
+      box-shadow: 0.1rem 0.1rem 6px #e3e3e3;
+    }
+  }
+}
