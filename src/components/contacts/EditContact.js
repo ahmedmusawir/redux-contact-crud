@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import InputGroup from '../layout/InputGroup';
-import uuid from 'uuid';
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { editContact } from '../../actions/contactActions';
+import { getContact } from '../../actions/contactActions';
 
 export class EditContact extends Component {
   state = {
@@ -11,16 +13,18 @@ export class EditContact extends Component {
     errors: {}
   };
 
-  async componentDidMount() {
-    const { id } = this.props.match.params;
-    const res = await axios.get(`http://localhost:8000/users/${id}`);
-
-    const contact = res.data;
+  componentWillReceiveProps(nextProps, nextState) {
+    const { name, email, phone } = nextProps.contact;
     this.setState({
-      name: contact.name,
-      email: contact.email,
-      phone: contact.phone
+      name,
+      email,
+      phone
     });
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.props.getContact(id);
   }
 
   onSubmit = async e => {
@@ -55,18 +59,19 @@ export class EditContact extends Component {
       return;
     }
 
+    const { id } = this.props.match.params;
+
     const updatedContact = {
+      id,
       name,
       email,
       phone
     };
-    //Put Request
-    const { id } = this.props.match.params;
+    //Filling the form with user data to be edited
+    this.props.getContact(id);
 
-    const res = await axios.put(
-      `http://localhost:8000/users/${id}`,
-      updatedContact
-    );
+    //Put Request
+    this.props.editContact(updatedContact);
 
     //Clear State
     this.setState({
@@ -143,4 +148,17 @@ export class EditContact extends Component {
   }
 }
 
-export default EditContact;
+EditContact.propTypes = {
+  contact: PropTypes.object.isRequired,
+  editContact: PropTypes.func.isRequired,
+  getContact: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  contact: state.contactR.contact
+});
+
+export default connect(
+  mapStateToProps,
+  { editContact, getContact }
+)(EditContact);

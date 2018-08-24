@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "276f78f7-2411-415d-b56f-b966b3e9c232",
+      "name": "Moose Man 2",
+      "email": "moose@email.com",
+      "phone": "404.219.1002"
+    },
+    {
+      "id": "24afaa41-2e6d-4c93-96b6-3c85b6a54290",
+      "name": "Iron Man 2",
+      "email": "sp@email.com",
+      "phone": "404.123.1244"
+    },
+    {
+      "id": "e61e1073-c5b5-4187-bead-c7926f2332fd",
+      "name": "Justin Bibo 4",
+      "email": "jb1234@email.com",
+      "phone": "404.123.1234"
+    },
+    {
+      "id": "b4408a45-f60e-4b1e-af0c-aab70c3a6551",
+      "name": "Super Man 1",
+      "email": "sp1@email.com",
+      "phone": "303.123.1234"
+    },
+    {
+      "id": "2df9ab70-a8a1-464f-a7ce-98ee710dd48b",
+      "name": "Spider Man 3",
+      "email": "sp3@email.com",
+      "phone": "101,123.1234"
+    },
+    {
+      "id": "ccedf00e-1b74-46e9-a88b-255a638351a0",
+      "name": "Aqua Man 2",
+      "email": "am@email.com",
+      "phone": "303.123.1234"
+    }
+  ]
+}

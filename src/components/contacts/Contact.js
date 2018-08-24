@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteContact } from '../../actions/contactActions';
-import axios from 'axios';
 
 export class Contact extends Component {
   state = {
