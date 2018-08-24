@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { deleteContact } from '../../actions/contactActions';
 import axios from 'axios';
 
 export class Contact extends Component {
@@ -12,13 +14,8 @@ export class Contact extends Component {
       showContactInfo: !this.state.showContactInfo
     });
   };
-  onDeleteClick = async (id, dispatch) => {
-    try {
-      await axios.delete(`http://localhost:8000/users/${id}`);
-    } catch (e) {
-      console.log('Delete Failed in Contact.js with Axios: ' + e);
-      return;
-    }
+  onDeleteClick = id => {
+    this.props.deleteContact(id);
   };
 
   render() {
@@ -77,6 +74,10 @@ export class Contact extends Component {
 Contact.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired
+  phone: PropTypes.string.isRequired,
+  deleteContact: PropTypes.func.isRequired
 };
-export default Contact;
+export default connect(
+  null,
+  { deleteContact }
+)(Contact);

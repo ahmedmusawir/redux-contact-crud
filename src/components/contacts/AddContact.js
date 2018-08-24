@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import InputGroup from '../layout/InputGroup';
 import uuid from 'uuid';
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addContact } from '../../actions/contactActions';
 
 export class AddContact extends Component {
   state = {
@@ -11,7 +13,7 @@ export class AddContact extends Component {
     errors: {}
   };
 
-  onSubmit = async e => {
+  onSubmit = e => {
     e.preventDefault();
     const { name, email, phone } = this.state;
 
@@ -50,8 +52,8 @@ export class AddContact extends Component {
       phone
     };
 
-    //Posing Date to JSON Server
-    const res = await axios.post('http://localhost:8000/users', newContact);
+    //Adding Data to Redux
+    this.props.addContact(newContact);
 
     //Clear State
     this.setState({
@@ -128,4 +130,10 @@ export class AddContact extends Component {
   }
 }
 
-export default AddContact;
+AddContact.propTypes = {
+  addContact: PropTypes.func.isRequired
+};
+export default connect(
+  null,
+  { addContact }
+)(AddContact);
