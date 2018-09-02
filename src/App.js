@@ -15,7 +15,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="contact-context-app">
-            <Header branding="Contacts" />
+            <Header branding="Redux Contacts" />
             <div className="container">
               <Switch>
                 <Route exact path="/" component={Contacts} />

@@ -12,7 +12,7 @@ export class Contacts extends Component {
     const { contacts } = this.props;
     return (
       <div className="home-page pt-5">
-        <h1 className="text-center mb-4">Contact List</h1>
+        <h1 className="text-center mb-4">Redux Contact List</h1>
         <div className="row">
           {contacts.map(contact => (
             <Contact

@@ -8,7 +8,7 @@ import {
 } from './types';
 
 export const getContacts = () => async dispatch => {
-  const res = await axios.get('http://localhost:8000/users');
+  const res = await axios.get('http://142.93.105.156:8000/users');
 
   dispatch({
     type: GET_CONTACTS,
@@ -17,7 +17,7 @@ export const getContacts = () => async dispatch => {
 };
 
 export const getContact = id => async dispatch => {
-  const res = await axios.get(`http://localhost:8000/users/${id}`);
+  const res = await axios.get(`http://142.93.105.156:8000/users/${id}`);
 
   dispatch({
     type: GET_CONTACT,
@@ -26,7 +26,7 @@ export const getContact = id => async dispatch => {
 };
 
 export const addContact = contact => async dispatch => {
-  const res = await axios.post('http://localhost:8000/users', contact);
+  const res = await axios.post('http://142.93.105.156:8000/users', contact);
 
   dispatch({
     type: ADD_CONTACT,
@@ -36,7 +36,7 @@ export const addContact = contact => async dispatch => {
 
 export const editContact = contact => async dispatch => {
   const res = await axios.put(
-    `http://localhost:8000/users/${contact.id}`,
+    `http://142.93.105.156:8000/users/${contact.id}`,
     contact
   );
 
@@ -47,7 +47,7 @@ export const editContact = contact => async dispatch => {
 };
 
 export const deleteContact = id => async dispatch => {
-  await axios.delete(`http://localhost:8000/users/${id}`);
+  await axios.delete(`http://142.93.105.156:8000/users/${id}`);
 
   dispatch({
     type: DELETE_CONTACT,
